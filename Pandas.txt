@@ -1,0 +1,121 @@
+PANDAS
+
+dict1 = {
+	"name":['a','b','c','d'],
+	"marks":[10,20,30,40],
+	"city":['delhi','chennai','jaipur','rampur']
+	}
+
+convert a dict into excel sheet
+df = pd.Dataframe(dict1)    ---> also have a index(0,1,2...) which is also called row name,   key is also called column name
+
+export this dataframe to a csv file
+df.to_csv('nameoffile.csv')
+
+to remove index from dataframe
+df.to_csv('nameoffile.csv', index=false)
+
+peak first n rows of a dataframe
+df.head(2)  -->  shows first 2 rows
+
+peak last n rows of a dataframe
+df.tail(2)  -->  shows last 2 rows
+
+automatic calculate columns with numbers
+df.describe()  --> calculates count,mean,std,min,25%,50%,75%,max of columns with no.(marks)
+
+read a csv file into a dataframe
+read_csv = pd.read_csv('existing_file.csv')
+
+getting a particular key value pair in imported csv
+read_csv['key']
+
+changing a particualar key value pair in imported csv
+read_csv['key'][index] = new value
+
+how to change index from 0,1,2,3 to any other
+read_csv.index = ['first','second','third','fourth']
+
+pandas have 2 data structures
+series- holds any 1 type of data type in its 1D array(1 col) with indexes in a dataframe
+dataframe- have multiple row and col structure which can hold multiple types of data
+
+creating series with random value
+ser = pd.Series(np.random.rand(10))       --> create 1d dataframe with 10 random values
+
+creating a dataframe with random values
+newdf = pd.DataFrame(np.random.rand(334,5), index=np.arange(334))
+
+get datatype of every column
+newdf.dtypes
+
+every column in a dataframe can have 1 datatype
+
+convert a dataframe to numpy array
+newdf.to_numpy()
+
+transpose of a df
+newdf.T
+
+sorting the dataframe according to index
+newdf.sort_index(axis=0,ascending=false)
+
+getting type of a value
+type(newdf)
+
+creating pointer/view of a dataframe
+newdf2=newdf
+if newdf2[0][0] = value
+then newdf[0][0] = value   also
+
+copying a dataframe
+newdf2 = newdf.copy()
+
+droping a row in dataframe
+newdf.drop(0, axis=0)
+
+droping a col in dataframe
+newdf.drop(2, axis=1)      --> just gives the view dont changes the orignal dataframe
+
+changing a value in a view/dataframe
+newdf.loc[0,0] = value
+
+get a specific row and col
+newdf.loc[[0,1],[2,3]]     ---> returns a copy/view of orignal dataframe
+
+get a specific row / col
+newdf.loc[[:,[2,3]]     ---> returns all rows in 2,3 col
+newdf.loc[[[1,2],:]     ---> returns all col in 1,2 col
+
+getting a value with constraints
+newdf.loc[(newdf[:,['A']]<0.3) & (newdf[[2],:)<1]
+
+
+targeting value with row and col name
+newdf.loc[a,b]
+
+targeting value with row and col index no
+newdf.iloc[2,3]]
+
+droping orignal df not view
+newdf.drop(0, axis=0, inplace=True)
+           OR
+newdf = newdf.drop(0, axis=0)
+
+reseting the droped index
+newdf.reset_index(drop=True, inplace=True)
+
+drop rows with none value
+newdf.dropna()
+
+getting a shape of a df
+newdf.shape
+
+geting value which are null
+newdf.isnull()
+
+geting value which are not null
+newdf.notnull()
+
+reading a excel sheet
+df = pd.read_excel('data.xlsx', sheet_name='sheet2')
