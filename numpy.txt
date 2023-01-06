@@ -1,0 +1,135 @@
+[] lists are mutable and can store multiple data types
+
+() tuple are not mutable and can store multiple data types
+
+{} dict are key value pairs
+keys are ["...."]=100   here 100 is the value for key inside double quotes
+dict.items()    -->  gets key value pairs af a dict
+dict.keys()     --> geta all the keys of a dict
+
+set(list/tuple)  --> removes all the repeating element of a list/tuple and converts the items into a set
+ 
+ 
+
+
+
+NUMPY
+
+how to make a array using list
+myarr = np.arr([list], np.int64)      (np.int64  --> memory alocated as integer type 64 bit) (1D array)
+my arr2 = np.arr([[1,2,3,4]])       (2D array)
+
+getting shape of a array
+myarr.shape     --> (1,4)    --> 1 row 4 col
+
+getting dtpye of a array
+myarr.dtype   -->(int64)
+
+
+getting size of array
+myarr.size        -->   4
+
+making a array of zeros
+zero= np.zeros((2,4))    -->  make a array of 2 rows and 4 column with all value 0
+
+making a array of a range
+rng = np.arange(15)        -->  makes a array with values 0 - n-1(14)
+
+make a array with equaly space elements
+lnspace = np.linspace(1,5,3)     --> array with 1 to 5 with 3 element in array equaly spaced ([1,3,5])
+
+make a array of a size with random value
+emp = np.empty((2,3))     --> create a array of 2,3 with random values
+
+make a array of size of different array
+emp_like = np.empty_like(zero)     --> makes a array of size array zero
+
+get a identity matriz array
+identity = np.identity(45)        -->  makes a identity matrix array of 45,45 elements
+
+how to reshape(change no of rows and col of a array
+arr = np.arange(99)         --> makes a arr from 0 - 98
+aar.reshape((3,33))         -->  converts the array into 3 rows and 33 col each
+
+how to canvert any array to 1D array
+aar.ravel()        --> convert array back to 1D
+
+
+AXIS in NUMPY
+
+1D array has 1 axis
+2D arr har 2 axis
+axis which point towards rows id axis 0
+axis which point towards cols id axis 1
+
+sum of all element which falls in a axis
+arr = ([1,2,3],[4,5,6],[7,8,9])
+ar = np.array(x)
+ar.sum(axis=0)    ---> ([12,15,18])
+
+transpose a array
+ar.T     -->  transpose the array
+
+get items in a array
+for items in ar.flat:
+	print(items)
+
+get a dimension of a array
+ar.ndim  ---> 2
+
+get a no of element in a array
+ar.size     --->  9
+
+total space in bytes in array consumed
+ar.nbytes      -->  36
+
+get a index of max element in a array
+ar = np.array([1,2,4,10])
+ar.argmax()    -->  3
+
+get a index of min element in a array
+ar = np.array([1,2,4,10)]
+ar.argmin()    -->  0
+
+sort the element in a array
+ar = np.array([1,2,4,10,3)]
+ar.argsort()      --> [(0,1,4,2,3)]     (indexes of element)
+
+sorting a 2D array
+arr = [[1,2,3],[4,5,6],[7,8,9]]
+ar = np.array(arr)
+ar.argmax()   -->  converts the array into 1d ---> 8(index)
+ar.argmin()   -->  converts the array into 1d ---> 0(index)
+ar.max()     -->  gives value of max element -->9
+ar.min()     -->  gives value of min element -->1
+ar.argmax(axis=0)  --> tells index of a max element in a row  --> ([2,2,2)]
+ar.argmin(axis=0)  --> tells index of a min element in a row  --> ([0,0,0)]
+ar.argmax(axis=1)  --> tells index of a max element in a col  --> ([2,2,2)]
+ar.argmin(axis=1)  --> tells index of a min element in a col  --> ([0,0,0)]
+
+
+operations on 2 matrix(array)
+ar= np.array([1,2,3],[4,5,6],[7,8,9])
+ar2= np.array([1,2,1],[3,1,2],[4,2,3])
+ar + ar2   -->      ([2,4,4],[7,6,8],[11,10,12])
+ar * ar2       -->  multiplies 2 array index wise(not same to matrix multiplication)
+np.sqrt(ar)       --> sqrt of all element
+ar.sum      --> sum of all elements
+
+np.where(ar>=8)      --> ((2,1),(2,2)) --> returns in type tupple
+
+np.nonzero(ar)   --> gives indexes of all element with non zero value
+
+convert a array into list
+ar.tolist()
+
+spliting a array
+newarr = array_split(ar,3)
+
+cliping a array
+abc = np.arange(10)
+abcd = np.clip(abc,2,7)   ----> (2,2,3,4,5,6,7,7,7)
+
+slicing a array
+arr = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
+arr[0:2, 1:4]         ------>       [[2 3 4],[7 8 9]]
