@@ -1,0 +1,5 @@
+def rotatelist(l, k):
+    if k <= 0:
+        return l
+    return l[k % len(l):] + l[:k % len(l)]
+# k % len(l) for efficiently running code when k > size of list
