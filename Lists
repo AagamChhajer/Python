@@ -1,0 +1,19 @@
+>>>nested = [[2,[3,45,6]],"Aagam",23]
+>>> nested[0][1][2] = 9
+>>> nested
+[[2, [3, 45, 9]], 'Aagam', 23]
+>>> nested[0][1] = 34
+>>> nested
+[[2, 34], 'Aagam', 23]
+>>> nested[0][:2]
+[2, 34]
+>>> nested[0][1:]
+[34]
+>>> nested[0][0:]
+[2, 34]
+>>> nested[0][0:1]
+[2]
+>>> nested[1][3] = "a"
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'str' object does not support item assignment
