@@ -1,0 +1,88 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPA2OXWTHve+Zhx2dxPMQ7u",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/AagamChhajer/Python/blob/main/Args%20and%20Kwargs\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_1cznjkQ78sF",
+        "outputId": "fb12bd6c-cc67-44db-d763-9ed83d105810"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "6\n"
+          ]
+        }
+      ],
+      "source": [
+        "def func(**k):\n",
+        "  ans = k['a'] + k['b'] + k['c']\n",
+        "  print(ans)\n",
+        "  return\n",
+        "func(a = 1,b = 2,c = 3)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def sum(*k):\n",
+        "  s = 0\n",
+        "  for n in k:\n",
+        "    s = s + n\n",
+        "  print(\"Sum: \",s)\n",
+        "\n",
+        "sum(1,2,3)\n",
+        "sum(6,7,8,5,4) "
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "XgL5uJz3_AZt",
+        "outputId": "571c26f4-4baf-4058-c100-dbf3c738e160"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Sum:  6\n",
+            "Sum:  30\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
